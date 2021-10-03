@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA247DC82708C28B00BF43B8 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA247DC72708C28B00BF43B8 /* CheckViewController.swift */; };
+		FA247DCA2708C2D600BF43B8 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA247DC92708C2D600BF43B8 /* GroupViewController.swift */; };
+		FA247DCC2708C2F100BF43B8 /* PasswordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA247DCB2708C2F100BF43B8 /* PasswordListViewController.swift */; };
 		FACC1C5527007E2E001A38EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC1C5427007E2E001A38EB /* AppDelegate.swift */; };
 		FACC1C5727007E2E001A38EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC1C5627007E2E001A38EB /* SceneDelegate.swift */; };
-		FACC1C5927007E2E001A38EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC1C5827007E2E001A38EB /* ViewController.swift */; };
+		FACC1C5927007E2E001A38EB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC1C5827007E2E001A38EB /* WelcomeViewController.swift */; };
 		FACC1C5C27007E2E001A38EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACC1C5A27007E2E001A38EB /* Main.storyboard */; };
 		FACC1C5E27007E31001A38EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACC1C5D27007E31001A38EB /* Assets.xcassets */; };
 		FACC1C6127007E31001A38EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACC1C5F27007E31001A38EB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA247DC72708C28B00BF43B8 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
+		FA247DC92708C2D600BF43B8 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		FA247DCB2708C2F100BF43B8 /* PasswordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordListViewController.swift; sourceTree = "<group>"; };
 		FACC1C5127007E2E001A38EB /* PasswordCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACC1C5427007E2E001A38EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FACC1C5627007E2E001A38EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FACC1C5827007E2E001A38EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FACC1C5827007E2E001A38EB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		FACC1C5B27007E2E001A38EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FACC1C5D27007E31001A38EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FACC1C6027007E31001A38EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +43,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA247DCD2708C2FA00BF43B8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FACC1C5827007E2E001A38EB /* WelcomeViewController.swift */,
+				FA247DC92708C2D600BF43B8 /* GroupViewController.swift */,
+				FA247DCB2708C2F100BF43B8 /* PasswordListViewController.swift */,
+				FA247DC72708C28B00BF43B8 /* CheckViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		FACC1C4827007E2E001A38EB = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +75,8 @@
 			children = (
 				FACC1C5427007E2E001A38EB /* AppDelegate.swift */,
 				FACC1C5627007E2E001A38EB /* SceneDelegate.swift */,
-				FACC1C5827007E2E001A38EB /* ViewController.swift */,
 				FACC1C5A27007E2E001A38EB /* Main.storyboard */,
+				FA247DCD2708C2FA00BF43B8 /* Controllers */,
 				FACC1C5D27007E31001A38EB /* Assets.xcassets */,
 				FACC1C5F27007E31001A38EB /* LaunchScreen.storyboard */,
 				FACC1C6227007E31001A38EB /* Info.plist */,
@@ -137,9 +154,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FACC1C5927007E2E001A38EB /* ViewController.swift in Sources */,
+				FA247DCC2708C2F100BF43B8 /* PasswordListViewController.swift in Sources */,
+				FACC1C5927007E2E001A38EB /* WelcomeViewController.swift in Sources */,
+				FA247DC82708C28B00BF43B8 /* CheckViewController.swift in Sources */,
 				FACC1C5527007E2E001A38EB /* AppDelegate.swift in Sources */,
 				FACC1C5727007E2E001A38EB /* SceneDelegate.swift in Sources */,
+				FA247DCA2708C2D600BF43B8 /* GroupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
