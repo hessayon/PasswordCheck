@@ -3,13 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6262F5B497746CA5F618CB3A /* Pods_PasswordCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A89EFB55114CB6BE430C4C /* Pods_PasswordCheck.framework */; };
 		FA247DC82708C28B00BF43B8 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA247DC72708C28B00BF43B8 /* CheckViewController.swift */; };
 		FA247DCA2708C2D600BF43B8 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA247DC92708C2D600BF43B8 /* GroupViewController.swift */; };
 		FA247DCC2708C2F100BF43B8 /* PasswordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA247DCB2708C2F100BF43B8 /* PasswordListViewController.swift */; };
+		FA460C062732F9B600BA4CEA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA460C052732F9B600BA4CEA /* Group.swift */; };
+		FA460C082732FA8900BA4CEA /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA460C072732FA8900BA4CEA /* Password.swift */; };
+		FA460C0A2732FB7F00BA4CEA /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA460C092732FB7F00BA4CEA /* SwipeTableViewController.swift */; };
 		FACC1C5527007E2E001A38EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC1C5427007E2E001A38EB /* AppDelegate.swift */; };
 		FACC1C5727007E2E001A38EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC1C5627007E2E001A38EB /* SceneDelegate.swift */; };
 		FACC1C5927007E2E001A38EB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC1C5827007E2E001A38EB /* WelcomeViewController.swift */; };
@@ -19,9 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		597B2050A74975B13BCE1DC2 /* Pods-PasswordCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasswordCheck.release.xcconfig"; path = "Target Support Files/Pods-PasswordCheck/Pods-PasswordCheck.release.xcconfig"; sourceTree = "<group>"; };
+		C1A89EFB55114CB6BE430C4C /* Pods_PasswordCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasswordCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4CECC878A9C5D403936B05D /* Pods-PasswordCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasswordCheck.debug.xcconfig"; path = "Target Support Files/Pods-PasswordCheck/Pods-PasswordCheck.debug.xcconfig"; sourceTree = "<group>"; };
 		FA247DC72708C28B00BF43B8 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		FA247DC92708C2D600BF43B8 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		FA247DCB2708C2F100BF43B8 /* PasswordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordListViewController.swift; sourceTree = "<group>"; };
+		FA460C052732F9B600BA4CEA /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		FA460C072732FA8900BA4CEA /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
+		FA460C092732FB7F00BA4CEA /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		FACC1C5127007E2E001A38EB /* PasswordCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACC1C5427007E2E001A38EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FACC1C5627007E2E001A38EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,12 +47,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6262F5B497746CA5F618CB3A /* Pods_PasswordCheck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94C23111E5E20F12B9B194BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4CECC878A9C5D403936B05D /* Pods-PasswordCheck.debug.xcconfig */,
+				597B2050A74975B13BCE1DC2 /* Pods-PasswordCheck.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B177BBE462801FB4F380241D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1A89EFB55114CB6BE430C4C /* Pods_PasswordCheck.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA247DCD2708C2FA00BF43B8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -50,8 +78,18 @@
 				FA247DC92708C2D600BF43B8 /* GroupViewController.swift */,
 				FA247DCB2708C2F100BF43B8 /* PasswordListViewController.swift */,
 				FA247DC72708C28B00BF43B8 /* CheckViewController.swift */,
+				FA460C092732FB7F00BA4CEA /* SwipeTableViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FA460C042732F99F00BA4CEA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA460C052732F9B600BA4CEA /* Group.swift */,
+				FA460C072732FA8900BA4CEA /* Password.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FACC1C4827007E2E001A38EB = {
@@ -59,6 +97,8 @@
 			children = (
 				FACC1C5327007E2E001A38EB /* PasswordCheck */,
 				FACC1C5227007E2E001A38EB /* Products */,
+				94C23111E5E20F12B9B194BB /* Pods */,
+				B177BBE462801FB4F380241D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +113,7 @@
 		FACC1C5327007E2E001A38EB /* PasswordCheck */ = {
 			isa = PBXGroup;
 			children = (
+				FA460C042732F99F00BA4CEA /* Model */,
 				FACC1C5427007E2E001A38EB /* AppDelegate.swift */,
 				FACC1C5627007E2E001A38EB /* SceneDelegate.swift */,
 				FACC1C5A27007E2E001A38EB /* Main.storyboard */,
@@ -91,9 +132,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FACC1C6527007E31001A38EB /* Build configuration list for PBXNativeTarget "PasswordCheck" */;
 			buildPhases = (
+				E78D2358974243E3732F7287 /* [CP] Check Pods Manifest.lock */,
 				FACC1C4D27007E2E001A38EB /* Sources */,
 				FACC1C4E27007E2E001A38EB /* Frameworks */,
 				FACC1C4F27007E2E001A38EB /* Resources */,
+				BCD23585A2DC9A870F01580C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,14 +192,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BCD23585A2DC9A870F01580C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PasswordCheck/Pods-PasswordCheck-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PasswordCheck/Pods-PasswordCheck-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PasswordCheck/Pods-PasswordCheck-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E78D2358974243E3732F7287 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PasswordCheck-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FACC1C4D27007E2E001A38EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA460C082732FA8900BA4CEA /* Password.swift in Sources */,
 				FA247DCC2708C2F100BF43B8 /* PasswordListViewController.swift in Sources */,
 				FACC1C5927007E2E001A38EB /* WelcomeViewController.swift in Sources */,
 				FA247DC82708C28B00BF43B8 /* CheckViewController.swift in Sources */,
+				FA460C0A2732FB7F00BA4CEA /* SwipeTableViewController.swift in Sources */,
+				FA460C062732F9B600BA4CEA /* Group.swift in Sources */,
 				FACC1C5527007E2E001A38EB /* AppDelegate.swift in Sources */,
 				FACC1C5727007E2E001A38EB /* SceneDelegate.swift in Sources */,
 				FA247DCA2708C2D600BF43B8 /* GroupViewController.swift in Sources */,
@@ -303,6 +391,7 @@
 		};
 		FACC1C6627007E31001A38EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4CECC878A9C5D403936B05D /* Pods-PasswordCheck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,6 +411,7 @@
 		};
 		FACC1C6727007E31001A38EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 597B2050A74975B13BCE1DC2 /* Pods-PasswordCheck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
