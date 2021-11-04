@@ -57,10 +57,15 @@ class PasswordListViewController: SwipeTableViewController {
     
     //MARK: - Add New Items
     
-
+    private var alert : UIAlertController?
+    
+    @objc func alertTextFieldDidChange(_ sender: UITextField) {
+            alert?.actions[0].isEnabled = sender.text!.count > 0
+        }
+    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
-        let alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
+        alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
         let actionAdd = UIAlertAction(title: "Add Item", style: .cancel) { (action) in
             if let currentGroup = self.selectedGroup{
                 do{
@@ -80,14 +85,16 @@ class PasswordListViewController: SwipeTableViewController {
         let actionCancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
             
         }
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "Create new item"
+        alert?.addTextField { alertTextField in
+            alertTextField.placeholder = "Create new password"
+            alertTextField.addTarget(self, action: #selector(self.alertTextFieldDidChange(_:)), for: .editingChanged)
             textField = alertTextField
 
         }
-        alert.addAction(actionAdd)
-        alert.addAction(actionCancel)
-        present(alert, animated: true, completion: nil)
+        actionAdd.isEnabled = false
+        alert?.addAction(actionAdd)
+        alert?.addAction(actionCancel)
+        present(alert!, animated: true, completion: nil)
     }
     
     

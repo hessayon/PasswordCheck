@@ -11,10 +11,13 @@ import MobileCoreServices
 import UniformTypeIdentifiers
 
 class GroupViewController: SwipeTableViewController {
+    
     let realm = try! Realm()
     private var groups: Results<Group>?
     private var passwordsFromFile = [String]()
     private var groupCreatedFromFile = Group()
+    private var alert: UIAlertController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadGroups()
@@ -86,6 +89,7 @@ class GroupViewController: SwipeTableViewController {
             }
         }
     }
+    
     //MARK: - Add New Group
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -102,60 +106,11 @@ class GroupViewController: SwipeTableViewController {
         // show the alert
         self.present(alert, animated: true, completion: nil)
 
-
-    }
-    
-    func createEmptyGroup() {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add New Group", message: "", preferredStyle: .alert)
-        let actionAdd = UIAlertAction(title: "Add Group", style: .cancel) { (action) in
-            let newGroup = Group()
-            newGroup.name = textField.text!
-            self.save(group: newGroup)
-            
-        }
-        let actionCancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
-        }
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "Create a new group"
-            textField = alertTextField
-            
-        }
-        alert.addAction(actionAdd)
-        alert.addAction(actionCancel)
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func createGroupFromFile() {
-        let alert = UIAlertController(title: "Add New Group", message: "", preferredStyle: .alert)
-        var textField = UITextField()
-        let actionChooseFile = UIAlertAction(title: "Choose file", style: .default) { (action) in
-            self.groupCreatedFromFile.name = textField.text!
-            print(self.groupCreatedFromFile.name)
-            let types = UTType.types(tag: "txt",
-                                         tagClass: UTTagClass.filenameExtension,
-                                         conformingTo: nil)
-            let documentPicker = UIDocumentPickerViewController(
-                    forOpeningContentTypes: types)
-            documentPicker.delegate = self
-            documentPicker.allowsMultipleSelection = false
-            self.present(documentPicker, animated: true, completion: nil)
-        }
-        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            
-        }
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "Create a new group"
-            textField = alertTextField
-            
-        }
-        alert.addAction(actionChooseFile)
-        alert.addAction(actionCancel)
-        self.present(alert, animated: true, completion: nil)
-        
     }
 
 }
+
+//MARK: - UIDocumentPickerDelegate methods
 
 extension GroupViewController: UIDocumentPickerDelegate {
     
@@ -163,8 +118,6 @@ extension GroupViewController: UIDocumentPickerDelegate {
         guard let selectedFileURL = urls.first else {
             return
         }
-        print(selectedFileURL)
-        
         do{
             let savedData = try String(contentsOf: selectedFileURL)
             let passwords = savedData.split(separator: ",")
@@ -176,7 +129,6 @@ extension GroupViewController: UIDocumentPickerDelegate {
                 passwordsFromFile.append(password.trimmingCharacters(in: .whitespacesAndNewlines))
             }
             self.save(group: self.groupCreatedFromFile)
-            print(self.groupCreatedFromFile)
             self.groupCreatedFromFile = Group()
             self.passwordsFromFile = []
                 
@@ -184,5 +136,67 @@ extension GroupViewController: UIDocumentPickerDelegate {
             print(error.localizedDescription)
         }
     }
+}
+
+
+//MARK: - Methods of creating groups
+
+extension GroupViewController {
     
+    @objc func alertTextFieldDidChange(_ sender: UITextField) {
+            alert?.actions[0].isEnabled = sender.text!.count > 0
+        }
+    
+    func createEmptyGroup() {
+        var textField = UITextField()
+        alert = UIAlertController(title: "Add New Group", message: "", preferredStyle: .alert)
+        let actionAdd = UIAlertAction(title: "Add Group", style: .cancel) { (action) in
+            let newGroup = Group()
+            newGroup.name = textField.text!
+            self.save(group: newGroup)
+            
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+        }
+        alert?.addTextField { alertTextField in
+            alertTextField.placeholder = "Create new group"
+            alertTextField.addTarget(self, action: #selector(self.alertTextFieldDidChange(_:)), for: .editingChanged)
+            textField = alertTextField
+            
+        }
+        actionAdd.isEnabled = false
+        alert?.addAction(actionAdd)
+        alert?.addAction(actionCancel)
+        self.present(alert!, animated: true, completion: nil)
+    }
+    
+    func createGroupFromFile() {
+        alert = UIAlertController(title: "Add New Group", message: "", preferredStyle: .alert)
+        var textField = UITextField()
+        let actionChooseFile = UIAlertAction(title: "Choose file", style: .cancel) { (action) in
+            self.groupCreatedFromFile.name = textField.text!
+            let types = UTType.types(tag: "txt",
+                                         tagClass: UTTagClass.filenameExtension,
+                                         conformingTo: nil)
+            let documentPicker = UIDocumentPickerViewController(
+                    forOpeningContentTypes: types)
+            documentPicker.delegate = self
+            documentPicker.allowsMultipleSelection = false
+            self.present(documentPicker, animated: true, completion: nil)
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            
+        }
+        alert?.addTextField { alertTextField in
+            alertTextField.placeholder = "Create a new group"
+            alertTextField.addTarget(self, action: #selector(self.alertTextFieldDidChange(_:)), for: .editingChanged)
+            textField = alertTextField
+            
+        }
+        actionChooseFile.isEnabled = false
+        alert?.addAction(actionChooseFile)
+        alert?.addAction(actionCancel)
+        self.present(alert!, animated: true, completion: nil)
+        
+    }
 }
