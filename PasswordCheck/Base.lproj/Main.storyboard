@@ -118,13 +118,16 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Length" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ad8-WO-5eJ">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="4" borderStyle="roundedRect" placeholder="Length" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ad8-WO-5eJ">
                                                         <rect key="frame" x="105" y="0.0" width="85" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="RDc-kK-64s">
                                                         <rect key="frame" x="210" y="1" width="85" height="32"/>
+                                                        <connections>
+                                                            <action selector="stepperPressed:" destination="npU-hm-6LO" eventType="valueChanged" id="a03-Wg-15w"/>
+                                                        </connections>
                                                     </stepper>
                                                 </subviews>
                                             </stackView>
@@ -143,8 +146,11 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6d-tH-EdW">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V6d-tH-EdW">
                                                         <rect key="frame" x="246" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="capitalLettersSwitchDidChange:" destination="npU-hm-6LO" eventType="valueChanged" id="sRu-xN-s2i"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
@@ -157,8 +163,11 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ion-Ff-oVi">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ion-Ff-oVi">
                                                         <rect key="frame" x="246" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="numbersSwitchDidChange:" destination="npU-hm-6LO" eventType="valueChanged" id="98G-pY-2gb"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
@@ -171,8 +180,11 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="awX-hB-BLc">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="awX-hB-BLc">
                                                         <rect key="frame" x="246" y="0.0" width="51" height="28.666666666666668"/>
+                                                        <connections>
+                                                            <action selector="specialSymbolsSwitchDidChange:" destination="npU-hm-6LO" eventType="valueChanged" id="MQR-xh-gQE"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
@@ -247,8 +259,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="oih-IS-y6x"/>
                     <connections>
+                        <outlet property="capitalLettersSwitch" destination="V6d-tH-EdW" id="c75-dz-Iwn"/>
                         <outlet property="groupPicker" destination="AFT-ho-DGN" id="bhl-61-qGa"/>
+                        <outlet property="lengthTextField" destination="Ad8-WO-5eJ" id="rOA-hL-Toq"/>
+                        <outlet property="numbersSwitch" destination="ion-Ff-oVi" id="Whc-DV-1A8"/>
                         <outlet property="passwordTextfield" destination="pli-A2-DZf" id="vU3-DB-tzR"/>
+                        <outlet property="specialSymbolsSwitch" destination="awX-hB-BLc" id="NLo-9p-Jag"/>
+                        <outlet property="stepper" destination="RDc-kK-64s" id="qnp-Wh-DkC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gm1-5O-Duz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

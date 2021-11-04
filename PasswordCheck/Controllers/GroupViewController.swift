@@ -188,7 +188,7 @@ extension GroupViewController {
             
         }
         alert?.addTextField { alertTextField in
-            alertTextField.placeholder = "Create a new group"
+            alertTextField.placeholder = "Create new group"
             alertTextField.addTarget(self, action: #selector(self.alertTextFieldDidChange(_:)), for: .editingChanged)
             textField = alertTextField
             
