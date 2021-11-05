@@ -67,17 +67,25 @@ class PasswordListViewController: SwipeTableViewController {
         var textField = UITextField()
         alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
         let actionAdd = UIAlertAction(title: "Add Item", style: .cancel) { (action) in
-            if let currentGroup = self.selectedGroup{
-                do{
-                    try self.realm.write({
-                        let newPassword = Password()
-                        newPassword.title = textField.text!
-                        newPassword.dateCreated = Date()
-                        currentGroup.passwords.append(newPassword)
-                    })
-                }catch{
-                    print("Error saving new items, \(error)")
+            if let currentGroup = self.selectedGroup {
+                let passwordTitle = textField.text!
+                if currentGroup.passwords.filter("title == %@", passwordTitle).count == 0 {
+                    do{
+                        try self.realm.write({
+                            let newPassword = Password()
+                            newPassword.title = passwordTitle
+                            newPassword.dateCreated = Date()
+                            currentGroup.passwords.append(newPassword)
+                        })
+                    }catch{
+                        print("Error saving new items, \(error)")
+                    }
+                } else {
+                    let errorAlert = UIAlertController(title: "Duplicate!", message: "Found duplicate password in this group.\nTry again!", preferredStyle: .alert)
+                    errorAlert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(errorAlert, animated: true, completion: nil)
                 }
+
 
             }
             self.tableView.reloadData()

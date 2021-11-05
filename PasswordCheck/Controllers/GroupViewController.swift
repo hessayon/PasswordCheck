@@ -49,7 +49,14 @@ class GroupViewController: SwipeTableViewController {
     func save(group: Group) {
         do {
             try realm.write({
-                realm.add(group)
+                if groups?.filter("name == %@", group.name).count == 0 {
+                    realm.add(group)
+                } else {
+                    let errorAlert = UIAlertController(title: "Duplicate!", message: "Found group with the same name.\nTry again!", preferredStyle: .alert)
+                    errorAlert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    present(errorAlert, animated: true, completion: nil)
+                }
+                
             })
         }catch {
             print("Error saving categoty \(error)")
@@ -93,18 +100,18 @@ class GroupViewController: SwipeTableViewController {
     //MARK: - Add New Group
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Create New Group", message: "Choose how to create a new group", preferredStyle: UIAlertController.Style.alert)
+        alert = UIAlertController(title: "Create New Group", message: "Choose how to create a new group", preferredStyle: UIAlertController.Style.alert)
         
         // add the actions (buttons)
-        alert.addAction(UIAlertAction(title: "Create Empty Group", style: .default) { (action) in
+        alert?.addAction(UIAlertAction(title: "Create Empty Group", style: .default) { (action) in
             self.createEmptyGroup()
         })
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Create Group From File", style: .default){ (action) in
+        alert?.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        alert?.addAction(UIAlertAction(title: "Create Group From File", style: .default){ (action) in
             self.createGroupFromFile()
         })
         // show the alert
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert!, animated: true, completion: nil)
 
     }
 
