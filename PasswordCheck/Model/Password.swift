@@ -11,5 +11,5 @@ import RealmSwift
 class Password : Object{
     @objc dynamic var title: String = ""
     @objc dynamic var dateCreated: Date?
-    var parentCategory = LinkingObjects(fromType: Group.self, property: "passwords" ) //relationships with Category class
+    var parentCategory = LinkingObjects(fromType: Group.self, property: "passwords" ) //relationships with Group class
 }

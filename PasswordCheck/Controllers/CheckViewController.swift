@@ -132,6 +132,8 @@ extension CheckViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 }
 
+//MARK: - Password Check methods
+
 extension CheckViewController {
     
     func isEasy(_ password: String) -> Bool {
