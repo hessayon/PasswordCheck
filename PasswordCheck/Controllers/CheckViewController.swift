@@ -34,6 +34,7 @@ class CheckViewController: UIViewController {
         super.viewDidLoad()
         groupPicker.dataSource = self
         groupPicker.delegate = self
+        passwordTextfield.delegate = self
         groups = realm.objects(Group.self)
         if let loadedGroups = groups {
             for group in loadedGroups {
@@ -164,5 +165,15 @@ extension CheckViewController {
     func isMatches(regex: String, _ password: String) -> Bool {
         let predicate = NSPredicate(format:"SELF MATCHES %@", regex)
         return predicate.evaluate(with: password)
+    }
+}
+
+//MARK: - UITextFieldDelegate
+
+extension CheckViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        passwordTextfield.endEditing(true)
+        return true
     }
 }
