@@ -11,5 +11,6 @@ The University Course Project. The app to check the simplicity of passwords.
 <img width="200" alt="image" src="https://user-images.githubusercontent.com/53599412/161932103-48a0a8c4-4863-4204-92f1-f49211d6a036.png">
 <img width="200" alt="image" src="https://user-images.githubusercontent.com/53599412/161932140-448758ee-e987-4a37-822d-3f496b683a14.png">
 <img width="200" alt="image" src="https://user-images.githubusercontent.com/53599412/161932316-7d210c0a-efb6-40fc-ac71-5aeb42263fc4.png">
+<img width="200" alt="image" src="https://user-images.githubusercontent.com/53599412/161932479-aa10dfaf-f151-4d89-b557-fafbfab1a76a.png">
 
 
